@@ -1,0 +1,87 @@
+// Page container to stack chessboard and chat vertically
+.page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh; // Full viewport height
+  background: url('https://www.textures.com/download/PBR0365/135965') repeat; // Wooden table texture
+  background-size: cover;
+  padding: 20px;
+}
+
+// Chessboard container for centering
+.chessboard-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px; // Space between chessboard and chat
+}
+
+// Chessboard styles
+.chess-board {
+  width: 320px;
+  border: 10px solid #4a3728; // Dark wooden border to mimic a physical board
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); // Shadow for raised effect
+  background-color: #fff; // Optional: subtle background for the board
+}
+
+.row {
+  display: flex;
+}
+
+.square {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.white {
+  background-color: #f0d9b5;
+}
+
+.black {
+  background-color: #b58863;
+}
+
+// Chat and commentary container
+.chat-container {
+  width: 320px; // Match chessboard width for alignment
+  display: flex;
+  flex-direction: column;
+  gap: 20px; // Space between commentary, chat history, and input
+}
+
+.commentary, .chat-history, .chat {
+  background: rgba(255, 255, 255, 0.9); // Semi-transparent white for readability
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); // Subtle shadow for depth
+}
+
+.chat form {
+  display: flex;
+  gap: 10px;
+}
+
+.chat input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.chat button {
+  padding: 8px 16px;
+  background-color: #4a3728; // Match the board's border color
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  &:hover {
+    background-color: #5e4632;
+  }
+}

@@ -1,0 +1,42 @@
+<div class="page-container">
+  <!-- Chessboard Container -->
+  <div class="chessboard-container">
+    <div class="chess-board">
+      <div *ngFor="let row of board; let rowIndex = index" class="row">
+        <div
+          *ngFor="let square of row; let colIndex = index"
+          class="square"
+          [ngClass]="{
+            'white': (rowIndex + colIndex) % 2 === 0,
+            'black': (rowIndex + colIndex) % 2 !== 0
+          }"
+          (click)="onSquareClick(rowIndex, colIndex)"
+        >
+          <span [innerHTML]="getPieceSymbol(square)"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chat and Commentary Container -->
+  <div class="chat-container">
+    <div class="commentary">
+      <h3>LLM Commentary</h3>
+      <p>{{ moveCommentary }}</p>
+    </div>
+
+    <div class="chat-history">
+      <div *ngFor="let msg of chatHistory">
+        <strong>{{ msg.role === 'user' ? 'You' : 'LLM' }}:</strong> {{ msg.content }}
+      </div>
+    </div>
+
+    <div class="chat">
+      <h3>Chat with the LLM</h3>
+      <form (ngSubmit)="sendChat()">
+        <input [(ngModel)]="chatInput" name="chatInput" placeholder="Ask the LLM..." />
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  </div>
+</div>
